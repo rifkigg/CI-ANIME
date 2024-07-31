@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.anime {
+  transition: 0.3 ease all;
+  -webkit-transition: 0.3 ease all;
+  -moz-transition: 0.3 ease all;
+  -ms-transition: 0.3 ease all;
+  -o-transition: 0.3 ease all;
+}
+
+.animeList:hover {
+  box-shadow: #ffbd39 0px -100px 36px -50px inset;
+}
+
+/* CSS untuk menyembunyikan scrollbar */
+.hide-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, and Opera */
+}
+
+.loader {
+  width: 52px;
+  height: 12px;
+  --c: radial-gradient(farthest-side, #ffbd39 90%, #0000);
+  background: var(--c) left, var(--c) right;
+  background-size: 12px 12px;
+  background-repeat: no-repeat;
+  display: grid;
+}
+.loader:before,
+.loader:after {
+  content: "";
+  width: 12px;
+  height: 12px;
+  grid-area: 1/1;
+  margin: auto;
+  border-radius: 50%;
+  transform-origin: -12px 50%;
+  background: #ffbd39;
+  animation: d9 1s infinite linear;
+}
+.loader:after {
+  transform-origin: calc(100% + 12px) 50%;
+  --s: -1;
+  animation-delay: -0.5s;
+}
+
+@keyframes d9 {
+  58%,
+  100% {
+    transform: rotate(calc(var(--s, 1) * 1turn));
+  }
+}
